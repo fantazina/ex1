@@ -4,7 +4,8 @@
     height: 105px;
     margin: 0;
     padding: 0;
-    position: fixed;
+    position: sticky;
     bottom: 0;
     color: white;
+    z-index: 10;
 }
