@@ -1,7 +1,26 @@
-import React, {useState} from 'react';
+import React, {useRef} from 'react';
 import '../css/Content.css';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Content = () => {
+    let sliderRef = useRef(null);
+
+    const numbers = [1, 2, 3, 4, 5, 6];
+
+    const settings = {
+        dots: false,
+        arrows: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        // centerMode: true,
+        // centerPadding: '0',
+    };
 
     return (
         <div className="content_container">
@@ -56,11 +75,13 @@ const Content = () => {
                 </div>
 
                 <div className="img_container2">
-                    <div className="img_box">
-                        <img className="s_img_"/>
-                        <img className="s_img_"/>
-                        <img className="s_img_"/>
-                    </div>
+
+                    <Slider {...settings}>{numbers.map((num, index) => (
+                        <div className="img_box">
+                            <div className="s_img_" key={index}></div>
+                        </div> ))}
+                    </Slider>
+
 
                     <div className="slide_nav">
                         <button className="btn_1"></button>
