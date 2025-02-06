@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/Sidebar.css';
 
-function Sidebar() {
+const Sidebar = () => {
     return (
         <div className="side_container">
             <ul className="sidebar_">

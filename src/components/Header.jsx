@@ -1,7 +1,7 @@
 import '../css/Header.css';
 import {useState} from "react";
 
-function Header() {
+const Header = () => {
     const [isVisible, setIsVisible]  = useState(false);
     return (
         <div>

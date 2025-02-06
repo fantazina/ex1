@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../css/Content.css';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {Map} from "react-kakao-maps-sdk";
+import KakaoMap from "./KakaoMap";
 
 const Content = () => {
     const numbers = [1, 2, 3, 4, 5, 6];
@@ -19,6 +19,17 @@ const Content = () => {
         // centerMode: true,
         // centerPadding: '0',
     };
+    useEffect(() => {
+        try {
+            if (window.Kakao) {
+                console.log("카카오맵 API 로드 성공");
+            } else {
+                console.error("카카오맵 API 로드 실패");
+            }
+        } catch (error) {
+            console.error("useEffect 내부 에러:", error);
+        }
+    }, []);
 
     return (
         <div className="content_container">
@@ -124,10 +135,7 @@ const Content = () => {
                 </div>
                 <div className="container6">
                     <div className="map_">
-                        <Map center={{lat: 37.2691, lng: 131.8650}}
-                             style={{width: '100%', height: '100%'}}
-                             level={3}
-                        />
+                        <KakaoMap />
                     </div>
                 </div>
                 <span className="empty_line"></span>
